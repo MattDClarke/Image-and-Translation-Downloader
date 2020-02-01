@@ -1,0 +1,364 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* grid for nav and main-content */
+.wrapper {
+  display: grid;
+  grid-gap: 10px;
+  /* remove horizontal scroll-bar */
+  overflow: hidden;
+}
+
+/* sub-grid */
+.main-content {
+  display: grid;
+  grid-gap: 15px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  /* had problem with page width being different for different tabs on this website... */
+  width: 100vw;
+  background: rgb(19,132,150);
+  box-shadow: 0 0 4px rgba(0,0,0,0.5);
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr; /* wrapper and footer --> push footer to bottom using Grid */
+  min-height: 100%;
+  width: 100%;
+  font-family: "Open Sans", "Clear Sans", sans-serif;
+  font-size: 18px;
+  /* make color a bit softer with some transparency - Wes Bos tip */
+  color: rgba(0, 0, 0, 0.9);
+  /* from heropatterns.com */
+  background-color: #ffffffde;
+  background-image: url("data:image/svg+xml,%3Csvg width='84' height='48' viewBox='0 0 84 48' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h12v6H0V0zm28 8h12v6H28V8zm14-8h12v6H42V0zm14 0h12v6H56V0zm0 8h12v6H56V8zM42 8h12v6H42V8zm0 16h12v6H42v-6zm14-8h12v6H56v-6zm14 0h12v6H70v-6zm0-16h12v6H70V0zM28 32h12v6H28v-6zM14 16h12v6H14v-6zM0 24h12v6H0v-6zm0 8h12v6H0v-6zm14 0h12v6H14v-6zm14 8h12v6H28v-6zm-14 0h12v6H14v-6zm28 0h12v6H42v-6zm14-8h12v6H56v-6zm0-8h12v6H56v-6zm14 8h12v6H70v-6zm0 8h12v6H70v-6zM14 24h12v6H14v-6zm14-8h12v6H28v-6zM14 8h12v6H14V8zM0 8h12v6H0V8z' fill='%23138496' fill-opacity='0.07' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  line-height: 3rem;
+}
+
+h2 {
+  font-size: 23px;
+  letter-spacing: 3px;
+  line-height: 2rem;
+}
+
+.footer {
+  /* push footer to bottom using Grid */
+  display: grid;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  margin-bottom: 0;
+  text-align: center;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+  
+}
+
+/* make logo stick to bottom */
+.footer-item {
+  align-self: end;
+  padding-top: 10px;
+}
+
+a:not(.text-info) {
+  width: 100%;
+  padding:20px 5px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 100;
+  letter-spacing: 4px;
+  background: rgb(19,132,150);
+  color:rgba(255, 255, 255, 0.938);
+  transition: all 0.5s;
+}
+
+a:hover:not(.logo):not(.text-info):not(.contact-link) {
+  background: rgb(89,169,181); 
+}
+
+a.logo {
+  padding-left: 10px;
+  text-align: left;
+  font-size: 30px;
+}
+
+a.contact-link {
+  background: none;
+} 
+
+/* Give the font awesome images (logo) a shadow  */
+a.logo i {
+  text-shadow:4px 4px 0 rgba(0,0,0,0.4);
+}
+
+.toggleNav {
+  display: none; /* hide when screen size is large */
+  background: rgb(19,132,150);
+  border: 1px solid rgb(19,132,150);
+  color:rgba(255, 255, 255, 0.938);
+  font-size: 18px;
+}
+
+.toggleNav:hover {
+  background: rgb(89,169,181); 
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+/* Remove dotted line around button when clicked on */
+.toggleNav:focus {
+  outline: none;
+}
+
+
+.main-content {
+  max-width: 1000px;
+  /* margin: (top and bottom) (left and right) */
+  /* Margin auto - horizontally center an element within its container */
+  margin: 0 auto;
+}
+
+.section {
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.959);
+  border: 1px solid rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 0 4px  rgba(0,0,0,0.2);
+}
+
+/* Increase width of section for all pages excl. Introduction */
+.section-downloader {
+  display: grid;
+  justify-items: center;  
+  width: 1000px;
+}
+
+/* Increase width of section for all pages excl. Introduction */
+.section-contacts {
+  display: grid;
+  width: 1000px;
+}
+
+.section-complete {
+  margin: 20px;
+}
+
+.section-apology {  /* also has class ="section-contacts" */
+  justify-items: center; 
+}
+
+.section-apology img {
+  width: 70%; /* decrease image size */
+}
+
+/* Get rid of list indentation */
+.intro-list, .notes-list {
+  padding-left: 15px;
+}
+
+/* flex container for nav (nested flex -> within nav flex container) */
+.flex-nav {
+  display: flex;
+  width: 1000px;
+}
+
+/* flex item */
+.logo-toggleNav {
+  flex: 1; /* defines how this flex item takes up remaining space relative to other flex items (or how it shrinks....) */
+  display: flex;
+}
+
+/* flex item */
+/* flex container */
+.flex-nav ul {
+  list-style: none;
+  /* make nav anchors take up all the space within the flex container with margin and padding = 0 */
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  flex: 1; /* This is flex item-ish. Defines how this flex item takes up remaining space relative to other flex items (takes up same relative remaining space as logo item) (or how it shrinks....) */
+  display: flex; /* This is flex container-ish */
+  /* added border and border-radius here to make .flex-nav li border look good (there was some overlap without it) */
+  border: 0.5px solid rgb(89,169,181);
+  border-radius: 5px;
+}
+
+/* flex item */
+.flex-nav li {
+  flex: 1; /* all list items grow or shrink the same (same size) */
+  display: flex; 
+  border: 0.5px solid rgb(89,169,181);
+  border-radius: 5px;
+}
+
+.flex-nav a {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+} 
+
+/* center span text */
+.flex-nav span {
+  display: block;
+  width: 100%;
+} 
+
+/* get logo text and nav menu to align... a bit hacky */
+.flex-nav ul span {
+  padding-top: 7px;
+}
+
+
+.intro-text {
+  line-height: 2rem; /* incr white space above and below text */
+}
+
+.section-container {
+  width: 260px;  /* set form width */
+}
+
+input {
+  width: 226px;
+}
+
+mark {
+  background-color: #28a745;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/* Changes cursors appearance to move cursor (for text input) */
+tr:hover {
+  cursor: move;
+}
+
+.program-language-images-contact img {
+  height: 100px;
+  padding-top: 10px;
+}
+
+/* make all contact images anchor children opaque when hovered over  */
+.program-language-images-contact:hover > a {
+  opacity:0.5;
+}
+
+/* The specific anchor that is hovered over will lose its opacity */
+.program-language-images-contact:hover > a:hover {
+  opacity: 1;
+}
+
+
+
+ /* ......................................... MID - SIZE SCREEN ..................................................................... */
+
+@media all and (max-width: 1040px) {
+  .main-content, .section-downloader, .section-contacts, .section-apology {
+    width: 100%;
+    padding: 0px 10px;
+  }
+  
+  .section {
+    padding: 20px; /* create more white space */
+  }
+  
+  /* flex container*/
+  .flex-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .logo-toggleNav {
+    display: flex;
+  }
+
+  /* Get text to align... a bit hacky */
+  .toggleNav span {
+    padding-top: 5px;
+    font-size: xx-large;
+  }
+
+  a.logo {
+    flex: 10; /* logo takes up most of the remaining space */
+  }
+
+  .toggleNav {
+    display: block;
+    border-radius: 5px;
+    flex: 1; /* toggle nave takes a little bit of the remaining space */
+  }
+  
+  /* hide nav when screen size mid size */
+  .flex-nav ul {
+    display: none;
+  }
+
+  /* jQuery toggle class */
+  .flex-nav ul.open {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .program-language-images-contact img {
+    height: 85px;
+  }
+}
+
+
+ /* ......................................... SML - SIZE SCREEN ..................................................................... */
+
+@media all and (max-width: 767px) {
+  body {
+    font-size: 16px;
+  }
+
+  .intro-text {
+    line-height: 1.5rem;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  a.logo {
+    font-size: 27px;
+  }   
+  .flex-nav ul {
+    font-size: 16px;
+  } 
+
+  .toggleNav {
+    flex: 1.5;
+  }
+
+  .toggleNav span {
+    font-size: x-large;
+  }
+
+  .program-language-images-contact img {
+    height: 70px;
+  }
+}
+
+
+
+
+
+
+
+

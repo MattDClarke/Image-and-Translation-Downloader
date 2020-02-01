@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Introduction
+{% endblock %}
+
+{% block content %}
+
+    <section class="section">
+        <h1>Introduction</h1>   
+            <p class="intro-text">Simplify your PowerPoint workflow.
+            Type in your search words and get images and translations downloaded automatically.
+            </p>
+    </section>
+
+    <section class="section">
+        <h1>How to use</h1>    
+            <ul class="intro-list intro-text">
+                <li>Go to the Downloader tab.</li>
+                <li>Select the translation language.</li>
+                <li>Enter the words that you would like to find images and translations for.</li>
+                <li>Select the number of images that you would like to download for each search.</li>
+                <li>You can rearrange the input boxes by placing your curser just below an input box.</li>
+                <li>The curser icon will change. You can click and drag to rearrange the input box.</li>
+                <li>After you input a word, you can hit <kbd>Enter</kbd> to create more input boxes</li>
+                <li>Click submit when ready.</li>
+                <li>Firefox browser will open and automatically get the translations and images.</li>
+                <li>A folder called 'multiImageSearchDownloads' will be created in your Local Disk Drive(C:).</li>
+                <li>The images and a text file containing the translations will be downloaded into this folder.</li>
+                <li>When complete, the website will display <mark>Download complete!</mark></li>
+            </ul>
+    </section>
+        
+    <section class="section">
+        <h1>Notes on use</h1>    
+            <ul class="notes-list intro-text">      
+                <li>Selenium, which is a suite of tools for automating web browsers, is used for automated web browsing.</li> 
+                <li>The browsers used are: Firefox as well as Firefox Developer Edition.</li>
+                <li>Bing image search is used to find images and Papago.naver.com is used for translations.</li>
+                <li>The downloaded images are large and have a wide layout (good for PowerPoint presentations). The images are free to share and use.</li>
+                <li>You are responsible for respecting others' rights, which includes copyright. You can find out more <a class="text-info" href="https://www.microsoft.com/en-us/legal/copyright/default.aspx">here</a>.</li>
+            </ul> 
+    </section>
+
+{% endblock %}
